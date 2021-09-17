@@ -129,6 +129,11 @@ unsigned char gf_add(unsigned char a, unsigned char b)
 
 unsigned char gf_multp(unsigned char a, unsigned char b)
 {
+	if((0xFF == a) || (0xFF == b))
+	{
+		return 0xFF;
+	}
+
 	unsigned char product_in_pow = (a + b) % (GF_FIELD - 1);
 
 	return product_in_pow;
